@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Exercise on Prime Numbers from https://javascript.info/while-for-->
+    <script>
+        //Function that takes user input for limit of numbers, the returns a string with all the primes at or below the limit. 
+        function listPrimes(yourNum){
+            let numPrimes = +yourNum;
+            let x = 2;
+            let primeString = "";
+            while (x < (numPrimes+1)){
+                if (isPrime(x)) {
+                    primeString += (x+",");
+                    x++;
+                } else {
+                    x++;
+                }
+            }
+            return primeString = primeString.replace(/.$/,'.');;
+        }
+
+        // function that returns boolean value of whether a number is a prime or not
+        function isPrime(yourNum){
+            let prime = +yourNum;
+            let primeTracker = true;
+            for (let i=2; i<=prime; i++){
+                if ((prime % i) === 0){
+                    if (prime === i){
+                        primeTracker = true;
+                    } else {
+                        primeTracker = false;
+                        break;
+                    }
+                }
+            }
+            return primeTracker;
+        }
+
+        //User prompt to receive the upper limit and output the list of primes
+        let getPrime = prompt("Please enter a prime number greater than 2:", undefined);
+        console.log("The primes from 2 to " + getPrime + " are: " + listPrimes(getPrime));
+    </script>
+</body>
+</html>
